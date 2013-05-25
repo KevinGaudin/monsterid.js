@@ -129,7 +129,7 @@
  * All code is in an anonymous closure to keep the global namespace clean.
  */
 (function (
-    global, pool, math, width, chunks, digits) {
+    global, pool, math, width, chunks, digits, monstermath) {
 
 //
 // The following constants are related to IEEE 754 limits.
@@ -143,7 +143,7 @@ var startdenom = math.pow(width, chunks),
 // seedrandom()
 // This is the seedrandom function described above.
 //
-math['seedrandom'] = function(seed, use_entropy) {
+monstermath['seedrandom'] = function(seed, use_entropy) {
   var key = [];
 
   // Flatten the seed string or build one from local entropy if needed.
@@ -162,7 +162,7 @@ math['seedrandom'] = function(seed, use_entropy) {
   // This function returns a random double in [0, 1) that contains
   // randomness in every bit of the mantissa of the IEEE 754 value.
 
-  math['random'] = function() {         // Closure to return a random double:
+  monstermath['random'] = function() {         // Closure to return a random double:
     var n = arc4.g(chunks),             // Start with a numerator n < 2 ^ 48
         d = startdenom,                 //   and denominator d = 2 ^ 48.
         x = 0;                          //   and no 'extra last byte'.
@@ -286,7 +286,7 @@ function tostring(a) {
 // seedrandom will not call math.random on its own again after
 // initialization.
 //
-mixkey(math.random(), pool);
+mixkey(monstermath.random(), pool);
 
 // End anonymous scope, and pass initial values.
 })(
@@ -295,5 +295,6 @@ mixkey(math.random(), pool);
   Math,   // math: package containing random, pow, and seedrandom
   256,    // width: each RC4 output is 0 <= x < 256
   6,      // chunks: at least six RC4 outputs for each double
-  52      // digits: there are 52 significant digits in a double
+  52,     // digits: there are 52 significant digits in a double
+  window.MonsterMath = window.MonsterMath || {}
 );
