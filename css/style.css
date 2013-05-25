@@ -4,3 +4,8 @@
     display: inline-block;
     margin: 1px;
 }
+
+#yourMonster {
+    width: 96px;
+    height: 96px;
+}

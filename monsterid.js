@@ -3,7 +3,7 @@
 
     "use strict";
 
-    MonsterId.getAvatar = function(string, element, theme) {
+    MonsterId.getAvatar = function(string, imageElement, theme) {
         theme = typeof theme !== 'undefined' ? theme : 'default';
         var md5 = hex_md5(string);
         var seed = parseInt(md5.substr(0, 6), 16);
@@ -12,7 +12,7 @@
         // Create seed.
         Math.seedrandom(seed);
 
-        var widthHeight = Math.min(element.offsetWidth, element.offsetHeight);
+        var widthHeight = Math.min(imageElement.offsetWidth, imageElement.offsetHeight);
         var canvas = document.createElement('canvas');
         canvas.width = widthHeight;
         canvas.height = widthHeight;
@@ -27,8 +27,6 @@
             mouth: availableParts[theme].mouth[Math.floor(Math.random() * availableParts[theme].mouth.length)]
         };
 
-        console.log(availableParts);
-        console.log(parts);
         // Create avatar.
         var avatar = canvas.getContext('2d');
 
@@ -48,12 +46,11 @@
             var part = parts[iPart];
             drawPart(part, avatar);
         }
-        if(element) {
-            var img = document.createElement('img');
-            img.src = canvas.toDataURL("image/png");
-            element.appendChild(img);
+        if(!imageElement) {
+            imageElement = document.createElement('img');
         }
-        return avatar;
+        imageElement.src = canvas.toDataURL("image/png");
+        return imageElement;
     };
 
     var drawPart = function(part, avatar) {
@@ -67,11 +64,9 @@
                 var x = col * dotSize;
                 switch(part[line][col]) {
                     case 1:
-                        console.log("drawrect " + x + " " + y + " " + dotSize + " " + dotSize);
                         avatar.fillRect(x, y, dotSize, dotSize);
                         break;
                     case 2:
-                        console.log("clearRect " + x + " " + y + " " + dotSize + " " + dotSize);
                         avatar.clearRect(x, y, dotSize, dotSize);
                         break;
                 }
