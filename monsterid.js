@@ -16,9 +16,6 @@
         var canvas = document.createElement('canvas');
         canvas.width = widthHeight;
         canvas.height = widthHeight;
-        if(element) {
-            element.appendChild(canvas);
-        }
 
         // Avatar random parts.
         var parts = {
@@ -50,6 +47,11 @@
         for (var iPart in parts) {
             var part = parts[iPart];
             drawPart(part, avatar);
+        }
+        if(element) {
+            var img = document.createElement('img');
+            img.src = canvas.toDataURL("image/png");
+            element.appendChild(img);
         }
         return avatar;
     };
