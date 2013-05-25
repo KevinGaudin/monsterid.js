@@ -8,10 +8,15 @@
     <script type="text/javascript" src="monsterid.js"></script>
 </head>
 <body>
-    <p>Here comes the monster : <div id="avatar"></div> <= ain't it cute ?</p>
+    <p>Here come the monsters :</p>
     <script type="text/javascript">
-        var avatar = document.getElementById("avatar");
-        MonsterId.getAvatar("toto",avatar);
+        var nbMonsters = 100;
+        for(var i = 0; i < nbMonsters; i++) {
+            var avatar = document.createElement('div');
+            avatar.className = "avatar";
+            document.body.appendChild(avatar);
+            MonsterId.getAvatar("monster" + i, avatar);
+        }
     </script>
 </body>
 </html>

@@ -1,4 +1,6 @@
-#avatar {
-    width: 96px;
-    height: 96px;
+.avatar {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    margin: 1px;
 }
