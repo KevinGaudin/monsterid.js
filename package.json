@@ -1,0 +1,25 @@
+{
+  "name": "monsterid.js",
+  "version": "0.1.0",
+  "description": "Generate pseudo random avatars in full browser compatible javascript.",
+  "main": "monsterid.js",
+  "dependencies": {
+    "grunt": "~0.4.1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.1",
+    "grunt-contrib-concat": "~0.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KevinGaudin/monsterid.js.git"
+  },
+  "author": "Kevin Gaudin",
+  "license": "BSD",
+  "gitHead": "5d921a7edb85117bad1c0d37286383cf9aa8e649",
+  "readmeFilename": "README.md"
+}

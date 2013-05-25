@@ -286,7 +286,7 @@ function tostring(a) {
 // seedrandom will not call math.random on its own again after
 // initialization.
 //
-mixkey(monstermath.random(), pool);
+mixkey(math.random(), pool);
 
 // End anonymous scope, and pass initial values.
 })(
@@ -296,5 +296,5 @@ mixkey(monstermath.random(), pool);
   256,    // width: each RC4 output is 0 <= x < 256
   6,      // chunks: at least six RC4 outputs for each double
   52,     // digits: there are 52 significant digits in a double
-  window.MonsterMath = window.MonsterMath || {}
+  window.MonsterId = window.MonsterId || {}
 );

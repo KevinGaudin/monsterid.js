@@ -5,12 +5,11 @@
 
     MonsterId.getAvatar = function(string, imageElement, theme) {
         theme = typeof theme !== 'undefined' ? theme : 'default';
-        var md5 = hex_md5(string);
+        var md5 = MonsterId.md5(string);
         var seed = parseInt(md5.substr(0, 6), 16);
-        var size = 120;
 
         // Create seed.
-        MonsterMath.seedrandom(seed);
+        MonsterId.seedrandom(seed);
 
         var widthHeight = Math.min(imageElement.offsetWidth, imageElement.offsetHeight);
         var canvas = document.createElement('canvas');
@@ -19,12 +18,12 @@
 
         // Avatar random parts.
         var parts = {
-            legs : availableParts[theme].legs[Math.floor(MonsterMath.random() * availableParts[theme].legs.length)],
-            hair : availableParts[theme].hair[Math.floor(MonsterMath.random() * availableParts[theme].hair.length)],
-            arms : availableParts[theme].arms[Math.floor(MonsterMath.random() * availableParts[theme].arms.length)],
-            body : availableParts[theme].body[Math.floor(MonsterMath.random() * availableParts[theme].body.length)],
-            eyes : availableParts[theme].eyes[Math.floor(MonsterMath.random() * availableParts[theme].eyes.length)],
-            mouth: availableParts[theme].mouth[Math.floor(MonsterMath.random() * availableParts[theme].mouth.length)]
+            legs : availableParts[theme].legs[Math.floor(MonsterId.random() * availableParts[theme].legs.length)],
+            hair : availableParts[theme].hair[Math.floor(MonsterId.random() * availableParts[theme].hair.length)],
+            arms : availableParts[theme].arms[Math.floor(MonsterId.random() * availableParts[theme].arms.length)],
+            body : availableParts[theme].body[Math.floor(MonsterId.random() * availableParts[theme].body.length)],
+            eyes : availableParts[theme].eyes[Math.floor(MonsterId.random() * availableParts[theme].eyes.length)],
+            mouth: availableParts[theme].mouth[Math.floor(MonsterId.random() * availableParts[theme].mouth.length)]
         };
 
         // Create avatar.
@@ -32,9 +31,9 @@
 
         // Choose a random color
         var randomColor = 'rgb(' +
-            (Math.floor(MonsterMath.random() * 200) + 55) + ',' +
-            (Math.floor(MonsterMath.random() * 200) + 55) + ',' +
-            (Math.floor(MonsterMath.random() * 200) + 55)
+            (Math.floor(MonsterId.random() * 200) + 55) + ',' +
+            (Math.floor(MonsterId.random() * 200) + 55) + ',' +
+            (Math.floor(MonsterId.random() * 200) + 55)
         +')';
         console.log("color: " + randomColor);
         avatar.fillStyle   = randomColor;
