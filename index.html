@@ -18,13 +18,15 @@
     <hr/>
     <p>Here come the monsters : <button onclick="addMonsters()">Moar !</button></p>
     <script type="text/javascript">
+        var monstercount = 0;
         var addMonsters = function() {
-            var nbMonsters = 100;
-            for(var i = 0; i < nbMonsters; i++) {
+            var nbMonsters = monstercount + 100;
+            for(var i = monstercount; i < nbMonsters; i++) {
                 var avatar = document.createElement('img');
                 avatar.className = "avatar";
                 document.body.appendChild(avatar);
                 MonsterId.getAvatar("monster" + i, avatar);
+                monstercount++;
             }
         };
         addMonsters();
