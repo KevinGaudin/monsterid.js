@@ -35,7 +35,6 @@
             (Math.floor(MonsterId.random() * 200) + 55) + ',' +
             (Math.floor(MonsterId.random() * 200) + 55)
         +')';
-        console.log("color: " + randomColor);
         avatar.fillStyle   = randomColor;
         avatar.strokeStyle = randomColor;
         avatar.lineWidth   = 1;
@@ -53,10 +52,8 @@
     };
 
     var drawPart = function(part, avatar) {
-        console.log(avatar.canvas.width + " / " + part.length + " = " + (avatar.canvas.width / part.length));
         var dotSize = Math.floor(avatar.canvas.width / part.length);
         var offset = Math.round(0.5 * (avatar.canvas.width - dotSize * part.length));
-        console.log("dotsize: " + dotSize);
         // Iterate over lines
         for(var line in part) {
             var y = line * dotSize + offset;
