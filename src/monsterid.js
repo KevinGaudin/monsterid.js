@@ -12,6 +12,7 @@
         MonsterId.seedrandom(seed);
 
         var widthHeight = Math.min(imageElement.offsetWidth, imageElement.offsetHeight);
+        widthHeight = Math.max(widthHeight, 12);
         var canvas = document.createElement('canvas');
         canvas.width = widthHeight;
         canvas.height = widthHeight;
