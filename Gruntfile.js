@@ -41,7 +41,5 @@ module.exports = function(grunt) {
     grunt.renameTask('regarde', 'watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['uglify']);
-    grunt.registerTask('dist', ['concat','uglify']);
-
+    grunt.registerTask('default', ['concat', 'uglify']);
 };
